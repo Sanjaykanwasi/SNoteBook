@@ -27,7 +27,7 @@ const Signup = (props) => {
     console.log(json);
     if (json.success) {
       // Redirect to home
-      localStorage.setItem("token", json.authtoken);
+      localStorage.setItem("token", json.authToken);
       navigate("/");
       props.showAlert("Account Created", "success");
     } else {
@@ -42,6 +42,7 @@ const Signup = (props) => {
 
   return (
     <div>
+      <h2>Signup to continue to SNoteBook</h2>
       <form onSubmit={handleSubmit} className="my-5">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

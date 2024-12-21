@@ -13,8 +13,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1Njc4ZjJkMWQwMzdlMWVmNTQ1YTNjIn0sImlhdCI6MTczMzcyODY5Mn0.dBHXAZnkyA2G6zOIUrUUgUXFbor3ndEb9K9ORwRamUw",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
@@ -29,8 +28,7 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1Njc4ZjJkMWQwMzdlMWVmNTQ1YTNjIn0sImlhdCI6MTczMzcyODY5Mn0.dBHXAZnkyA2G6zOIUrUUgUXFbor3ndEb9K9ORwRamUw",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -44,12 +42,11 @@ const NoteState = (props) => {
       method: "DElETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1Njc4ZjJkMWQwMzdlMWVmNTQ1YTNjIn0sImlhdCI6MTczMzcyODY5Mn0.dBHXAZnkyA2G6zOIUrUUgUXFbor3ndEb9K9ORwRamUw",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = response.json();
-    // console.log(json);
+    console.log(json);
     // console.log("Delete the note " + id);
     const newNotes = notes.filter((note) => {
       return note._id !== id;
@@ -64,13 +61,12 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1Njc4ZjJkMWQwMzdlMWVmNTQ1YTNjIn0sImlhdCI6MTczMzcyODY5Mn0.dBHXAZnkyA2G6zOIUrUUgUXFbor3ndEb9K9ORwRamUw",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     // Logic to edit
